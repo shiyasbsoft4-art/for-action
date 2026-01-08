@@ -1,0 +1,27 @@
+name: My CI/CD Pipeline
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+  workflow_dispatch: # Allows manual trigger
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest # Or another suitable runner
+
+    steps:
+      - name: Checkout repository code
+        uses: actions/checkout@v4 # Essential for accessing your repo's code
+
+      - name: Execute my custom Linux Commands Action
+        # Reference your action using its repository path and version tag
+        # Replace 'YOUR_GITHUB_USERNAME' with your actual username/organization name
+        uses: YOUR_GITHUB_USERNAME/my-linux-commands-action@v1
+
+      # You can add more steps here for building, testing, deploying, etc.
+      - name: Show build complete message
+        run: echo "Build process complete!"
