@@ -1,0 +1,13 @@
+# action.yml
+name: 'Basic Linux Commands' # User-friendly name for the action
+description: 'Runs the `who` and `date` Linux commands and prints their output.'
+runs:
+  using: "composite" # Defines this as a composite action
+  steps:
+    - name: Get current users
+      run: who # Executes the 'who' command
+      shell: bash # Specifies the shell to use for this command
+
+    - name: Get current date and time
+      run: date # Executes the 'date' command
+      shell: bash
